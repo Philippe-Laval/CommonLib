@@ -1,5 +1,6 @@
 ﻿using Kysect.CommonLib.BaseTypes.Extensions;
 using Kysect.CommonLib.FileSystem;
+using System;
 using System.IO.Abstractions;
 
 namespace Kysect.CommonLib.Testing;

@@ -1,4 +1,7 @@
-﻿namespace Kysect.CommonLib.DependencyInjection;
+﻿using System;
+using System.Collections.Generic;
+
+namespace Kysect.CommonLib.DependencyInjection;
 
 public sealed class IocContainerDependencyDisposer : IDisposable
 {

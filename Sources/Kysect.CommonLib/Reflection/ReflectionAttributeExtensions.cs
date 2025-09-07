@@ -95,12 +95,12 @@ public class ReflectionAttributeFinder
         return result;
     }
 
-    private MemberInfo ExtractEnumValueMember<TEnum>(TEnum value)
+    private MemberInfo ExtractEnumValueMember<TEnum>(TEnum value) where TEnum : notnull
     {
         value.ThrowIfNull();
 
         Type enumType = TypeInstanceCache<TEnum>.Instance;
-        MemberInfo[] members = enumType.GetMember(value.ToString());
+        MemberInfo[] members = enumType.GetMember(value.ToString()!);
         if (members.Length != 1)
             throw new ReflectionException($"Unexpected count of member with name {value} in type {enumType.FullName}: {members.Length}");
 
@@ -112,6 +112,6 @@ public class ReflectionAttributeFinder
     {
         Type attributeType = TypeInstanceCache<TAttribute>.Instance;
         var customAttribute = Attribute.GetCustomAttribute(value, attributeType);
-        return (TAttribute) customAttribute;
+        return (TAttribute?) customAttribute;
     }
 }

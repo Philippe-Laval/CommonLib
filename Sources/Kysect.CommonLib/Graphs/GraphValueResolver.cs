@@ -1,6 +1,7 @@
 ﻿namespace Kysect.CommonLib.Graphs;
 
 public class GraphValueResolver<TKey, T> : IGraphValueResolver<TKey, T>
+    where TKey : notnull
 {
     private readonly Dictionary<TKey, T> _map;
 

@@ -2,6 +2,7 @@
 using Kysect.CommonLib.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Diagnostics;
 
 namespace Kysect.CommonLib.DependencyInjection.Logging;

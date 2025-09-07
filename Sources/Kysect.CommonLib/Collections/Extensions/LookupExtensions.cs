@@ -4,7 +4,7 @@ namespace Kysect.CommonLib.Collections.Extensions;
 
 public static class LookupExtensions
 {
-    public class EmptyLookup<TKey, TValue> : ILookup<TKey, TValue>
+    public class EmptyLookup<TKey, TValue> : ILookup<TKey, TValue> where TKey : notnull
     {
         public IEnumerator<IGrouping<TKey, TValue>> GetEnumerator()
         {
@@ -33,6 +33,7 @@ public static class LookupExtensions
     }
 
     public static ILookup<TKey, TValue> ToLookup<TKey, TValue>(this Dictionary<TKey, List<TValue>> dictionary)
+        where TKey : notnull
     {
         return dictionary
             .SelectMany(p => p.Value.Select(v => (p.Key, Value: v)))
@@ -40,6 +41,7 @@ public static class LookupExtensions
     }
 
     public static ILookup<TKey, TValue> Empty<TKey, TValue>()
+        where TKey : notnull
     {
         return new EmptyLookup<TKey, TValue>();
     }

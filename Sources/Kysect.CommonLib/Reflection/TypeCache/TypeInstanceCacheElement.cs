@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
+#if !NET5_0_OR_GREATER
 using System.Runtime.Serialization;
-
+#endif
 namespace Kysect.CommonLib.Reflection.TypeCache;
 
 public class TypeInstanceCacheElement
@@ -37,7 +38,11 @@ public class TypeInstanceCacheElement
     {
         try
         {
+#if NET5_0_OR_GREATER
+            return System.Runtime.CompilerServices.RuntimeHelpers.GetUninitializedObject(Type);
+#else
             return FormatterServices.GetUninitializedObject(Type);
+#endif
         }
         catch (Exception e)
         {

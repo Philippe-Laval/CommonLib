@@ -1,6 +1,7 @@
 using FluentAssertions;
 using Kysect.CommonLib.Reflection;
 using Kysect.CommonLib.Reflection.TypeCache;
+using System;
 
 namespace Kysect.CommonLib.Tests.Reflection.Searching;
 
